@@ -1,0 +1,25 @@
+{
+  "name": "challenge-monet-jcs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:browsers": "playwright install",
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:web": "playwright test tests/web",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "perf:50": "k6 run -e ENABLE_50_TPS=true -e ENABLE_100_TPS=false performance/products-add.k6.js",
+    "perf:100": "k6 run -e ENABLE_50_TPS=false -e ENABLE_100_TPS=true performance/products-add.k6.js",
+    "perf:both": "k6 run performance/products-add.k6.js",
+    "perf:report": "node scripts/build-performance-report.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^24.0.0",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.8.3",
+    "xlsx": "^0.18.5"
+  }
+}
